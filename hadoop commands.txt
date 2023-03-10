@@ -1,0 +1,36 @@
+cd Desktop
+mkdir achsaya
+cd achsaya
+vi file.txt
+esc :wq! enter
+hadoop fs -copyFromLocal file.txt source
+mkdir fromhadoop
+cd fromhadoop
+vi file1.txt
+esc :wq! enter
+vi file2.txt
+esc :wq! enter
+ls
+cd ..
+hadoop fs -mkdir source
+hadoop fs -mkdir dest
+hadoop fs -copyFromLocal file1.txt source
+hadoop fs -ls source
+hadoop fs -copyToLocal source/file1.txt 
+ls
+hadoop fs -cp source/file1.txt dest
+hadoop fs -ls dest
+hadoop fs -du
+hadoop fs -df
+hadoop fs -copyFromLocal file2.txt source
+hadoop fs -getmerge source fromhadoop/mergedfile
+cat fromhadoop/mergedfile
+hadoop fs -get source/file.txt fromhadoop
+ls fromhadoop
+hadoop fs -put fromhadoop/mergedfile source
+hadoop fs -ls source
+hadoop fs -usage put
+hadoop fs -chmod 777 source/file.txt
+hadoop fs -ls source
+hadoop fs -head source/file.txt
+hadoop fs -tail source/file.txt 
