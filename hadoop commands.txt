@@ -20,8 +20,8 @@ hadoop fs -copyToLocal source/file1.txt
 ls
 hadoop fs -cp source/file1.txt dest
 hadoop fs -ls dest
-hadoop fs -du
-hadoop fs -df
+hadoop fs -du(shows file size)
+hadoop fs -df(shows size used and amount of free size)
 hadoop fs -copyFromLocal file2.txt source
 hadoop fs -getmerge source fromhadoop/mergedfile
 cat fromhadoop/mergedfile
